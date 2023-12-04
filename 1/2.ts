@@ -1,13 +1,13 @@
 import * as fs from 'fs';
-import * as rd from 'readline';
 
-var reader = rd.createInterface(fs.createReadStream('C:\\Users\\wsundqvi\\OneDrive - Capgemini\\Documents\\Advent of code\\1\\input.txt'));
+const data = fs.readFileSync('./input.txt', 'utf8');
+const lines = data.split('\n');
 
 var numbers = ["1","2","3","4","5","6","7","8","9","0","one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "zero"];
 
 
 var sum = 0;
-reader.on("line", (l: string) => {
+for (var l of lines) {
     var firstIndex = 99;
     var firstNumber = "";
     var lastIndex = -1;
@@ -32,11 +32,9 @@ reader.on("line", (l: string) => {
     }
     var result = numberValue(firstNumber) +  numberValue(lastNumber);
     sum += +result;
-});
+}
 
-reader.on("close", ()=> {
-    console.log("Result: " + sum);
-})
+console.log("Result: " + sum);
 
 function numberValue(word: string)
 {
