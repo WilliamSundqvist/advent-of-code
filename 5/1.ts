@@ -3,21 +3,6 @@ import * as fs from 'fs';
 const data = fs.readFileSync('./input.txt', 'utf8');
 const lines = data.split('\r\n');
 
-interface MapRow { source: string, destination: string };
-
-const SEEDS = "SEEDS";
-const SEED_TO_SOIL = "STS"
-const SOIL_TO_FERT = "STF";
-const FERT_TO_WATER = "FTW";
-const WATER_TO_LIGHT = "WTL";
-const LIGHT_TO_TEMP = "LTT";
-const TEMP_TO_HUM = "TTH";
-const HUM_TO_LOC = "HTL";
-
-var ORDER = [SEEDS, SEED_TO_SOIL, SOIL_TO_FERT, FERT_TO_WATER, WATER_TO_LIGHT, LIGHT_TO_TEMP, TEMP_TO_HUM, HUM_TO_LOC];
-var orderIndex = 0;
-
-var sum = 0;
 var seeds: string[] = [];
 
 var seedString = lines[0].split(": ")[1];
